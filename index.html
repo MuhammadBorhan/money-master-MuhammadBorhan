@@ -11,13 +11,57 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Raw CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Money Master</title>
 </head>
 
 <body>
-    <h1>Money Master</h1>
+    <main class="container">
+        <section>
+            <div class="head-title text-center py-5">
+                <h1 class="text-warning">My Savings Account</h1>
+            </div>
+        </section>
+
+        <section>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="money-img">
+                        <img class="img-fluid" src="image/money.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="money-details p-5 text-center">
+                        <form action="">
+                            <h4>income</h4>
+                            <label for="">Income:</label>
+                            <input type="text" placeholder="Enter income money">
+                            <h4>Expenses</h4>
+                            <label for="">Food:</label>
+                            <input type="text"><br>
+                            <label for="">Rent:</label>
+                            <input type="text"><br>
+                            <label for="">Clothes:</label>
+                            <input type="text"><br>
+                            <button type="submit">Calculate</button>
+
+                            <h4>Total Expenses: <span>0</span></h4>
+                            <h4>Balance: <span>0</span></h4>
+
+                            <label for="">Save:</label>
+                            <input type="text">
+                            <span>%</span>
+                            <button type="submit">Save</button>
+
+                            <h4>Saving Amount: <span>0</span></h4>
+                            <h4>Remaining Balance: <span>0</span></h4>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
