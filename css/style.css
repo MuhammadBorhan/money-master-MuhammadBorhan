@@ -1,3 +1,35 @@
 .money-details{
     background-color: #F8F8F8;
 }
+
+label.input-label {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+input.input-field {
+    width: 200px;
+    padding: 5px 10px;
+    margin: 10px;
+}
+input.save-input {
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+button.save-button {
+    padding: 6px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: royalblue;
+    color: white;
+    letter-spacing: 3px;
+    border: none;
+}
+span.save-percent {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 10px;
+}
