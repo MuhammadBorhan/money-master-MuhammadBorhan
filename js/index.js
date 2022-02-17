@@ -1,3 +1,5 @@
+
+// custom input field using function 
 function getInputField(input) {
     const inputField = document.getElementById(input);
     const inputFieldText = inputField.value;
@@ -5,6 +7,7 @@ function getInputField(input) {
     return inputBalance;
 }
 
+// calculate income and expenses amount using event handler
 document.getElementById('calculate-button').addEventListener('click', function () {
     const incomeAmount = getInputField('income-input');
     const foodAmount = getInputField('food-input');
@@ -19,9 +22,10 @@ document.getElementById('calculate-button').addEventListener('click', function (
 
 });
 
+
+// saving amount and remaining balance calculate using event handler
 document.getElementById('save-button').addEventListener('click', function () {
-    const saveInput = document.getElementById('save-input');
-    const saveInputValue = parseFloat(saveInput.value);
+    const saveInputValue = getInputField('save-input');
 
     const balance = document.getElementById('balance').innerText;
     const savingBalance = (balance * saveInputValue) / 100;
