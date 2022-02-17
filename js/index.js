@@ -15,9 +15,9 @@ function getButton(buttonField) {
         const rentAmount = getInputField('rent-input');
         const clothesAmount = getInputField('clothes-input');
 
-        if (incomeAmount >= 0 && foodAmount >= 0 && rentAmount >= 0 && clothesAmount >= 0) {
+        if (0 <= incomeAmount && 0 <= foodAmount && 0 <= rentAmount && 0 <= clothesAmount) {
             const totalExpenses = foodAmount + rentAmount + clothesAmount;
-            if (totalExpenses < incomeAmount) {
+            if (totalExpenses <= incomeAmount) {
                 document.getElementById('total-expns').innerText = totalExpenses;
                 const restBalance = incomeAmount - totalExpenses;
                 document.getElementById('balance').innerText = restBalance;
