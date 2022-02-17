@@ -17,7 +17,9 @@ function getButton(buttonField) {
 
         if (0 <= incomeAmount && 0 <= foodAmount && 0 <= rentAmount && 0 <= clothesAmount) {
             const totalExpenses = foodAmount + rentAmount + clothesAmount;
-            if (totalExpenses <= incomeAmount) {
+            const nitSavingBalance = document.getElementById('saving-amount').innerText;
+            const nitIncome = incomeAmount - nitSavingBalance;
+            if (totalExpenses <= incomeAmount && totalExpenses <= nitIncome) {
                 document.getElementById('total-expns').innerText = totalExpenses;
                 const restBalance = incomeAmount - totalExpenses;
                 document.getElementById('balance').innerText = restBalance;
