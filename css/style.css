@@ -32,12 +32,12 @@ input.save-input {
 
 /* button style */
 button.save-button {
-    padding: 6px 30px;
+    padding: 5px 25px;
     font-size: 20px;
     font-weight: bold;
     background-color: royalblue;
     color: white;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     border: none;
 }
 

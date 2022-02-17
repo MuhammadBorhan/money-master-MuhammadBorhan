@@ -1,9 +1,8 @@
 
 // custom input field using function 
-function getInputField(input) {
-    const inputField = document.getElementById(input);
-    const inputFieldText = inputField.value;
-    const inputBalance = parseFloat(inputFieldText);
+function getInputField(inputValue) {
+    const inputField = document.getElementById(inputValue);
+    const inputBalance = parseFloat(inputField.value);
     return inputBalance;
 }
 
@@ -16,24 +15,29 @@ function getButton(commonButton) {
         const rentAmount = getInputField('rent-input');
         const clothesAmount = getInputField('clothes-input');
 
-        const totalExpenses = foodAmount + rentAmount + clothesAmount;
-        document.getElementById('total-expns').innerText = totalExpenses;
+        if (incomeAmount > 0 && foodAmount > 0 && rentAmount > 0 && clothesAmount > 0) {
+            const totalExpenses = foodAmount + rentAmount + clothesAmount;
+            document.getElementById('total-expns').innerText = totalExpenses;
 
-        const balance = incomeAmount - totalExpenses;
-        document.getElementById('balance').innerText = balance;
+            const restBalance = incomeAmount - totalExpenses;
+            document.getElementById('balance').innerText = restBalance;
+        }
+        else {
+            alert('please enter number')
+        }
 
         // Calculate Saving amount and Remaining balance
-        const saveInputValue = getInputField('save-input');
-        const balance2 = document.getElementById('balance').innerText;
+        const savingInputValue = getInputField('save-input');
+        const restTotalBalance = document.getElementById('balance').innerText;
 
-        if (isNaN(saveInputValue)) {
-
-        } else {
-            const savingBalance = (balance2 * saveInputValue) / 100;
+        if (savingInputValue > 0) {
+            const savingBalance = (restTotalBalance * savingInputValue) / 100;
             document.getElementById('saving-amount').innerText = savingBalance;
-            const remainingBalance = balance2 - savingBalance;
+
+            const remainingBalance = restTotalBalance - savingBalance;
             document.getElementById('remaining-bal').innerText = remainingBalance;
         }
+
     });
 }
 getButton('calculate-button');
