@@ -27,17 +27,19 @@ function getButton(commonButton) {
         }
 
         // Calculate Saving amount and Remaining balance
-        const savingInputValue = getInputField('save-input');
-        const restTotalBalance = document.getElementById('balance').innerText;
+        const savePercentValue = getInputField('save-input');
+        const totalIncome = getInputField('income-input');
 
-        if (savingInputValue > 0) {
-            const savingBalance = (restTotalBalance * savingInputValue) / 100;
-            document.getElementById('saving-amount').innerText = savingBalance;
-
-            const remainingBalance = restTotalBalance - savingBalance;
-            document.getElementById('remaining-bal').innerText = remainingBalance;
+        if (savePercentValue > 0) {
+            const savingBalance = (totalIncome * savePercentValue) / 100;
+            const restBalanceTotal = document.getElementById('balance').innerText;
+            if (savingBalance <= restBalanceTotal) {
+                document.getElementById('saving-amount').innerText = savingBalance;
+                document.getElementById('remaining-bal').innerText = restBalanceTotal - savingBalance;
+            } else {
+                alert('Sorry...!!! you have not enough balance');
+            }
         }
-
     });
 }
 getButton('calculate-button');
