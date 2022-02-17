@@ -1,13 +1,13 @@
 
 // custom input field using function 
-function getInputField(inputValue) {
-    const inputField = document.getElementById(inputValue);
-    const inputBalance = parseFloat(inputField.value);
+function getInputField(inputField) {
+    const inputFieldText = document.getElementById(inputField);
+    const inputBalance = parseFloat(inputFieldText.value);
     return inputBalance;
 }
 
-function getButton(commonButton) {
-    document.getElementById(commonButton).addEventListener('click', function () {
+function getButton(buttonField) {
+    document.getElementById(buttonField).addEventListener('click', function () {
 
         // Calculate income and Expenses amount
         const incomeAmount = getInputField('income-input');
@@ -15,12 +15,15 @@ function getButton(commonButton) {
         const rentAmount = getInputField('rent-input');
         const clothesAmount = getInputField('clothes-input');
 
-        if (incomeAmount > 0 && foodAmount > 0 && rentAmount > 0 && clothesAmount > 0) {
+        if (incomeAmount >= 0 && foodAmount >= 0 && rentAmount >= 0 && clothesAmount >= 0) {
             const totalExpenses = foodAmount + rentAmount + clothesAmount;
-            document.getElementById('total-expns').innerText = totalExpenses;
-
-            const restBalance = incomeAmount - totalExpenses;
-            document.getElementById('balance').innerText = restBalance;
+            if (totalExpenses < incomeAmount) {
+                document.getElementById('total-expns').innerText = totalExpenses;
+                const restBalance = incomeAmount - totalExpenses;
+                document.getElementById('balance').innerText = restBalance;
+            } else {
+                alert('opps..! your total Expenses is over than total Income.')
+            }
         }
         else {
             alert('please enter number')
